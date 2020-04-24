@@ -2,6 +2,7 @@
 /* By Sharon Glendale */
 
 #include<iostream>
+#include <string>
 #include "node.h"
 using namespace std;
 
@@ -34,21 +35,31 @@ int main() {
 	bst.inorder(root);
 	cout << "Second, lets do a Pre-order tree traversal!" << endl;
 	bst.preorder(root);
+	cout << "Finally, let us do a Post-order traversal!" << endl;
+	bst.postorder(root);
 
 	int tempKey = 0;
+	string input = "";
 
 	cout << "We may now perform a search." << endl
-		<<	"If the number is in our tree the search will return true." << endl
-		<< "Please enter a non-zero number you would like to search for:";
-	cin >> tempKey;
+		<< "If the number is in our tree the search will return true." << endl;
 
-	
-	node *IsInTree = bst.search(root, tempKey);
+	while (input != "exit")
+	{
+		cout << "Please enter a non-zero number you would like to search for:";
+		cin >> tempKey;
 
-	if (IsInTree->getData() == tempKey)
-		cout << tempKey << " is in the tree! " << endl << IsInTree->getData() << " was returned from your search."<<endl;
-	else
-		cout <<tempKey<<" is not in the tree." << endl;
+
+		node* IsInTree = bst.search(root, tempKey);
+
+		if (IsInTree != NULL && IsInTree->getData() == tempKey)
+			cout << tempKey << " is in the tree! " << endl << IsInTree->getData() << " was returned from your search." << endl;
+		else
+			cout << tempKey << " is not in the tree." << endl;
+
+		cout << "If you would like exit the program, please type 'exit.' To continue, type anything else and press enter.";
+		cin >> input;
+	}
 
 	cout << "You have reached the end of the Program. I am Iron Man. *Snaps*" << endl;
 

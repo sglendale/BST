@@ -55,6 +55,7 @@ public:
 	void preorder(node*);
 
 	//Postorder traversal declaration
+	void postorder(node*);
 
 
 

@@ -57,16 +57,15 @@ node* node::search(node* root, int key) {
 	//Possibilities
 	// 1) There are no nodes left to search; that is, the key is not in the tree, OR the key is a leaf node, OR there 
 	// exist no nodes in the tree left to search.
-	if (root->leftChild == NULL && root->rightChild == NULL)
+	if (root == NULL || root->data == key)
 		return root;
 
-	// 2) The key is greater than root's key*/
-	else if (root->data < key)
+	// 2) If the key is greater than the root, continue searching right.
+	if(root->data < key)
 		return search(root->rightChild, key);
 
-	// 3) The key is less than root's key*/
-	else 
-		return search(root->leftChild, key);
+	//Else, the key is less than the root, so search left. 
+	 return search(root->leftChild, key);
 
 }
 
@@ -77,7 +76,7 @@ int node::getData() {
 
 }
 
-// In-order uses a stack, and is a Depth-first search. 
+// In-order uses a stack, and is a Depth-first algorithm. 
 // 1.) Traverse left until there is no left. 
 // 2.) Print ("Visit") this leftmost node which has no left children remaining.
 // 3.) Visit the rightChild of the most recently printed node. Repeat step 1. 
@@ -96,7 +95,7 @@ void node::inorder(node* root) {
 
 }
 
-//Preorder, like Inorder, uses a stack implementation and is also a Depth-first search.
+//Preorder, like Inorder, uses a stack implementation and is also a Depth-first algorithm. 
 // 1.) Visit node
 // 2.) Traverse left
 // 3.) Traverse right
@@ -114,5 +113,28 @@ void node::preorder(node* root) {
 	preorder(root->leftChild);
 	preorder(root->rightChild);
 
+	return;
+
+
+}
+//Similar to Inorder and Preorder, Postorder is also a depth-first algorithm.
+// 1.) Traverse left (all the way left to the leftmost leaf node).
+// 2.) Traverse right. 
+// 3.) Visit the node and print its value. 
+
+//Postorder traversal definition
+void node::postorder(node* root) {
+
+	if (root == NULL)
+		return;
+
+	//Note that in the process of execution, if the leftChild in the below call is NULL, the function returns (if(root==NULL) return;)
+	//control to the previous recursive call, and continues to the rightChild. 
+	postorder(root->leftChild);
+	//If the rightChild in the below call is NULL, the call immmediately returns and prints the nodes value.
+	postorder(root->rightChild);
+	std::cout << root->data << std::endl;
+
+	return;
 
 }
