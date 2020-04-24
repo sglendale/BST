@@ -1,4 +1,4 @@
-/* Practice of Searching Algorithms */
+/* Demo of BST functions Algorithms */
 /* By Sharon Glendale */
 
 #include<iostream>
@@ -12,7 +12,8 @@ int main() {
 
 	cout << "Welcome to the BST Demo." << endl << "To start, let us insert nodes with the following values specified:" << endl;
 
-
+	//You may edit these values before building your program, or even make it more interactive by prompting the user to 
+	//to build the tree with input they provide. 
 	root = bst.insert(root, 50);
 	cout << "Inserting 50."<< endl;
 	bst.insert(root, 30);
@@ -48,6 +49,8 @@ int main() {
 		cout << tempKey << " is in the tree! " << endl << IsInTree->getData() << " was returned from your search."<<endl;
 	else
 		cout <<tempKey<<" is not in the tree." << endl;
+
+	cout << "You have reached the end of the Program. I am Iron Man. *Snaps*" << endl;
 
 	return 0;
 

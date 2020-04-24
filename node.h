@@ -27,7 +27,7 @@ private:
 	node* rightChild;
 
 /*Note on member functions: you should make them private only if you expect to use that member function as a 
-helping function in the definition of member functions; for example a function called "check" to check the validity of
+helping function in the definition of other member functions; for example a function called "check" to check the validity of
 a public member function's values, should be private, because it is only used within that function and is not meant for 
 direct access.*/
 
@@ -39,22 +39,23 @@ public:
 	//Parameterized constructor declaration
 	node(int);
 
-	//Insert function
+	//Insert function declaration
 	node* insert(node*, int);
 
+	//Accessor function declaration
 	int getData();
 
-	//Search function
+	//Search function declaration
 	node* search(node*, int);
 
 	//Inorder traversal declaration
 	void inorder(node*);
 
+	//Preorder traversal declaration
 	void preorder(node*);
 
-	//Preorder traversal declaration
-
 	//Postorder traversal declaration
+
 
 
 };

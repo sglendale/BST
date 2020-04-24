@@ -10,6 +10,9 @@ node::node() {
 
 }
 
+//Note that the default constructor may also be written as:
+// node::node : data(0), leftChild(NULL), rightChild(NULL){} 
+
 //Parameterized Constructor definition
 node::node(int value) {
 
@@ -17,11 +20,13 @@ node::node(int value) {
 	leftChild = rightChild = NULL;
 }
 
+//Insert function definition
 node* node::insert(node* root, int value) {
 
 	//Insert the first node, if root is NULL.
 	if (!root)
 	{
+		//Explicit call to parameterized constructor. 
 		return new node(value);
 	}
 
@@ -45,9 +50,7 @@ node* node::insert(node* root, int value) {
 
 }
 
-//Note that the default constructor may also be written as:
-// node::node : data(0), leftChild(NULL), rightChild(NULL){} 
-
+//Search function definition
 node* node::search(node* root, int key) {
 
 
@@ -67,6 +70,7 @@ node* node::search(node* root, int key) {
 
 }
 
+//Acessor function definition
 int node::getData() {
 
 	return data;
@@ -78,6 +82,8 @@ int node::getData() {
 // 2.) Print ("Visit") this leftmost node which has no left children remaining.
 // 3.) Visit the rightChild of the most recently printed node. Repeat step 1. 
 // Check out this video for an awesome explanation of Inorder Traversal: https://www.youtube.com/watch?v=5dySuyZf9Qg
+
+//Inorder traversal definition
 void node::inorder(node* root) {
 
 	if (root->leftChild != NULL)
@@ -95,6 +101,8 @@ void node::inorder(node* root) {
 // 2.) Traverse left
 // 3.) Traverse right
 // Check out the awesome explanation in this video: https://www.youtube.com/watch?v=1WxLM2hwL-U
+
+//Preorder traversal definition
 void node::preorder(node* root) {
 
 	//Note that this null check returns control to the previous recursive call and continues executing where it last left off. 
