@@ -1,4 +1,4 @@
-/* Demo of BST functions Algorithms */
+/* Demo of BST functions */
 /* By Sharon Glendale */
 
 #include<iostream>
