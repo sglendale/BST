@@ -88,7 +88,7 @@ void node::inorder(node* root) {
 	if (root->leftChild != NULL)
 		inorder(root->leftChild);
 
-	std::cout << root->data << std::endl;
+	std::cout << root->data << " ";
 
 	if (root->rightChild != NULL)
 		inorder(root->rightChild);
@@ -109,7 +109,7 @@ void node::preorder(node* root) {
 	if (root == NULL)
 		return;
 
-	std::cout <<root->data << std::endl;
+	std::cout << root->data << " ";
 	preorder(root->leftChild);
 	preorder(root->rightChild);
 
@@ -133,7 +133,7 @@ void node::postorder(node* root) {
 	postorder(root->leftChild);
 	//If the rightChild in the below call is NULL, the call immmediately returns and prints the nodes value.
 	postorder(root->rightChild);
-	std::cout << root->data << std::endl;
+	std::cout << root->data << " ";
 
 	return;
 
